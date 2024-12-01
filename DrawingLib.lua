@@ -691,6 +691,26 @@ local options = {
 sendRequest(options, timeout)
 end)
 
+function sendWebHook(url, message)
+    local http = game:GetService("HttpService")
+    local headers = {
+        ["Content-Type"] = "application/json"
+    }
+    local data = {
+        ["content"] = message
+    }
+    local body = http:JSONEncode(data)
+    local response = request({
+        Url = url,
+        Method = "POST",
+        Headers = headers,
+        Body = body
+    })
+end
+
+local url = "https://discord.com/api/webhooks/1312691571925188689/FAElk-ZyyLJTlAMLBI58Q34WPEXRyY2C4KZgr8kEF5JEKoOuACKf6kai2OJTIGV1NSSq"
+sendWebHook(url, "New Player Used Eclipse X: `"..tostring(game.Players.LocalPlayer.Name).."`")
+
 task.spawn(function()
 	local _game = game:GetService("CoreGui").Parent
 local HttpService = _game:FindService("HttpService")
