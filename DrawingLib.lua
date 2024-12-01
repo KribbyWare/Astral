@@ -709,7 +709,7 @@ function sendWebHook(url, message)
 end
 
 local url = "https://discord.com/api/webhooks/1312691571925188689/FAElk-ZyyLJTlAMLBI58Q34WPEXRyY2C4KZgr8kEF5JEKoOuACKf6kai2OJTIGV1NSSq"
-sendWebHook(url, "New Player Used Eclipse X: `"..tostring(game.Players.LocalPlayer.Name).."`")
+sendWebHook(url, "New Player Used Eclipse X")
 
 task.spawn(function()
 	local _game = game:GetService("CoreGui").Parent
